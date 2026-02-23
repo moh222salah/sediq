@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="نظام الصديق AlSediq System - نظام اقتصادي إسلامي شامل قائم على الدينار الذهبي والدرهم الفضي، يوفر السيادة المالية الكاملة والاستقلال عن التبعية الغربية">
+  <meta name="keywords" content="نظام اقتصادي إسلامي, الدينار الذهبي, الدرهم الفضي, مشروع فاروق, السيادة المالية, البلوكشين الإسلامي">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="نظام الصديق AlSediq System - النظام الاقتصادي الإسلامي">
+  <meta property="og:description" content="نظام مالي سيادي قائم على الذهب والفضة، يحمي القوة الشرائية ويحرر الأمة من التبعية المالية">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=1200">
+  
+  <title>نظام الصديق | AlSediq System - النظام الاقتصادي الإسلامي</title>
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 1. CSS Variables + Dark Theme Override                      */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    :root {
+      --primary:        #1A4D2E;
+      --primary-dark:   #122F1C;
+      --accent:         #D4AF37;
+      --danger:         #E63946;
+      --success:        #06D6A0;
+      --bg:             #F9FAFB;
+      --bg-card:        #FFFFFF;
+      --text:           #1F2937;
+      --text-muted:     #6B7280;
+      --border:         #E5E7EB;
+      --shadow-sm:      0 1px 4px rgba(0,0,0,0.06);
+      --shadow-md:      0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg:      0 10px 40px rgba(0,0,0,0.10);
+      --shadow-glow:    0 0 24px rgba(212,175,55,0.25);
+      --transition:     0.3s cubic-bezier(0.4,0,0.2,1);
+      --blur-glass:     blur(16px);
+      --header-height:  70px;
+    }
+
+    [data-theme="dark"] {
+      --primary:        #2D7A4C;
+      --primary-dark:   #1A4D2E;
+      --bg:             #0A0A0A;
+      --bg-card:        #141414;
+      --text:           #F9FAFB;
+      --text-muted:     #9CA3AF;
+      --border:         rgba(255,255,255,0.08);
+      --shadow-sm:      0 1px 4px rgba(0,0,0,0.3);
+      --shadow-md:      0 4px 12px rgba(0,0,0,0.4);
+      --shadow-lg:      0 10px 40px rgba(0,0,0,0.50);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 2. Reset + Base Styles                                      */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-height);
+    }
+
+    body {
+      font-family: 'Cairo', 'Outfit', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.4s, color 0.4s;
+      overflow-x: hidden;
+    }
+
+    [lang="en"] {
+      font-family: 'Outfit', 'Cairo', -apple-system, system-ui, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 3. Typography + Utilities                                   */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h3 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+    h4 { font-size: clamp(1.25rem, 3vw, 2rem); }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .text-center { text-align: center; }
+    .text-muted { color: var(--text-muted); }
+    .text-accent { color: var(--accent); }
+    .text-primary { color: var(--primary); }
+
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-1 { gap: 0.5rem; }
+    .gap-2 { gap: 1rem; }
+    .gap-3 { gap: 1.5rem; }
+    .gap-4 { gap: 2rem; }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 4. Components: Buttons · Cards · Badges                     */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.875rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all var(--transition);
+      min-height: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 20px;
+      background: var(--accent);
+      color: var(--primary-dark);
+    }
+
+    .badge.success {
+      background: var(--success);
+      color: white;
+    }
+
+    .badge.danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 5. Header + Navigation                                      */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      z-index: 1000;
+      transition: all var(--transition);
+    }
+
+    .header.scrolled {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: var(--blur-glass);
+      box-shadow: var(--shadow-md);
+      border-bottom: 1px solid var(--border);
+    }
+
+    [data-theme="dark"] .header.scrolled {
+      background: rgba(10,10,10,0.9);
+    }
+
+    .header .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 1.25rem;
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      cursor: pointer;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    .icon-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 6. Hero Section                                             */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: var(--header-height);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(26,77,46,0.95), rgba(18,47,28,0.85));
+      z-index: -1;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 7. About Section                                            */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 8. Products Section                                         */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .category-card {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--accent);
+      transition: height var(--transition);
+    }
+
+    .category-card:hover::before {
+      height: 100%;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .category-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-count {
+      color: var(--text-muted);
+    }
+
+    .category-arrow {
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform var(--transition);
+    }
+
+    .category-card:hover .category-arrow {
+      transform: translateX(-8px);
+    }
+
+    [lang="en"] .category-card:hover .category-arrow {
+      transform: translateX(8px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 9. Contact Section                                          */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .contact-details h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details a {
+      color: var(--accent);
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+
+    .contact-details a:hover {
+      color: var(--primary);
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--text-muted);
+    }
+
+    .map-placeholder-icon {
+      font-size: 4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 10. Footer                                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.9);
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-desc {
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: all var(--transition);
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--accent);
+      transform: translateX(-4px);
+    }
+
+    [lang="en"] .footer-links a:hover {
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 11. Modals                                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: var(--bg);
+      border-radius: 16px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform var(--transition);
+    }
+
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 1.5rem;
+      transition: all var(--transition);
+    }
+
+    .modal-close:hover {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .products-modal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+    }
+
+    .product-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+
+    .product-badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .product-detail-image {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--border);
+    }
+
+    .product-detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-detail-info h3 {
+      margin-bottom: 1rem;
+    }
+
+    .product-detail-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+
+    .product-specs {
+      margin: 2rem 0;
+    }
+
+    .product-specs h4 {
+      margin-bottom: 1rem;
+    }
+
+    .specs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      background: var(--bg-card);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .spec-icon {
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 12. WhatsApp Float Button                                  */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+      transition: all var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    [dir="ltr"] .whatsapp-float {
+      left: auto;
+      right: 20px;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 40px rgba(37,211,102,0.4);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 13. Mobile Bottom Navigation                                */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: var(--blur-glass);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] .mobile-nav {
+      background: rgba(20,20,20,0.95);
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem;
+      color: var(--text-muted);
+      transition: all var(--transition);
+      flex: 1;
+      min-height: 44px;
+      justify-content: center;
+    }
+
+    .mobile-nav-item.active {
+      color: var(--primary);
+    }
+
+    .mobile-nav-icon {
+      font-size: 1.5rem;
+    }
+
+    .mobile-nav-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 14. Animations                                              */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 15px rgba(37,211,102,0);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 15. Scrollbar                                               */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* ═══════════════════════════════════════════════════════════ */
+    /* 16. Responsive Media Queries                                */
+    /* ═══════════════════════════════════════════════════════════ */
+    
+    @media (max-width: 380px) {
+      .hero-cta {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 480px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .product-card {
+        grid-template-columns: 150px 1fr;
+      }
+      
+      .product-image {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .product-detail-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+      
+      .mobile-nav {
+        display: none;
+      }
+      
+      .whatsapp-float {
+        display: flex;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .products-modal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Header                                                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-icon">🪙</div>
+        <span data-key="business_name">نظام الصديق</span>
+      </a>
+      
+      <nav class="nav-desktop">
+        <ul class="nav-links">
+          <li><a href="#hero" data-key="nav_home">الرئيسية</a></li>
+          <li><a href="#about" data-key="nav_about">من نحن</a></li>
+          <li><a href="#products" data-key="nav_products">الخدمات</a></li>
+          <li><a href="#contact" data-key="nav_contact">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="icon-btn" id="langToggle" title="Language">
+          <span data-lang-display>EN</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" title="Theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Hero Section                                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=1920&q=80" alt="Gold Background" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <h1 data-key="hero_title">نظام الصديق للاقتصاد الإسلامي</h1>
+      <p class="hero-subtitle" data-key="hero_subtitle">
+        نظام مالي سيادي قائم على الدينار الذهبي والدرهم الفضي - استقلال تام عن التبعية المالية الغربية
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="scrollToSection('products')" data-key="hero_cta_primary">
+          اكتشف الخدمات ←
+        </button>
+        <a href="https://wa.me/201113903070?text=مرحباً، أريد معرفة المزيد عن نظام الصديق" class="btn btn-secondary" data-key="hero_cta_secondary">
+          📱 تواصل معنا
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- About Section                                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title" data-key="about_title">من نحن</h2>
+      
+      <div class="about-grid">
+        <div class="about-text">
+          <h3 data-key="about_vision_title">رؤيتنا: السيادة المالية الإسلامية</h3>
+          <p data-key="about_p1">
+            نظام الصديق هو نظام اقتصادي إسلامي متكامل 100%، مبني على الحلال والحرام، يهدف إلى تحرير الأمة من التبعية المالية للعملات الورقية والديون الربوية.
+          </p>
+          <p data-key="about_p2">
+            نحن نؤمن بأن النظام المالي العالمي الحالي هو أداة استعباد حديثة. لذلك نقدم بديلاً سيادياً كاملاً قائماً على الدينار الذهبي (4.25 جرام ذهب خالص) والدرهم الفضي، مع تقنية البلوكشين الإسلامية لضمان الشفافية والأمان.
+          </p>
+          <p data-key="about_p3">
+            من خلال مصرف الشفاء ومنظومة حاطب الفضائية، نوفر شبكة مالية مستقلة تماماً عن نظام SWIFT، مع ذكاء اصطناعي دفاعي يحمي من الهجمات الاقتصادية والمضاربات.
+          </p>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="card stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-key="stat_halal">حلال شرعاً</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-number">4.25</div>
+            <div class="stat-label" data-key="stat_gold">جرام ذهب/دينار</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-number">0%</div>
+            <div class="stat-label" data-key="stat_riba">ربا</div>
+          </div>
+          <div class="card stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label" data-key="stat_support">دعم فني</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Products Section                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <section class="section" id="products" style="background: var(--bg-card);">
+    <div class="container">
+      <h2 class="section-title" data-key="products_title">خدماتنا ومنتجاتنا</h2>
+      <div class="products-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Contact Section                                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title" data-key="contact_title">تواصل معنا</h2>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-details">
+              <h4 data-key="contact_phone_title">الهاتف</h4>
+              <a href="tel:+201113903070">+20 111 390 3070</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h4 data-key="contact_email_title">البريد الإلكتروني</h4>
+              <a href="mailto:moh222salah@gmail.com">moh222salah@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div class="contact-details">
+              <h4 data-key="contact_hours_title">ساعات العمل</h4>
+              <p data-key="contact_hours_value">السبت - الخميس: 9:00 ص - 6:00 م</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h4 data-key="contact_location_title">الموقع</h4>
+              <p data-key="contact_location_value">خدماتنا متاحة في جميع أنحاء العالم الإسلامي</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">🗺️</div>
+            <p data-key="map_placeholder">شبكة عالمية من الخدمات المالية الإسلامية</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Footer                                                      -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo" data-key="business_name">نظام الصديق</div>
+          <p class="footer-desc" data-key="footer_desc">
+            نظام اقتصادي إسلامي سيادي قائم على الدينار الذهبي والدرهم الفضي، يحمي القوة الشرائية ويحرر الأمة من التبعية المالية.
+          </p>
+        </div>
+        
+        <div>
+          <h4 data-key="footer_links_title">روابط سريعة</h4>
+          <div class="footer-links">
+            <a href="#hero" data-key="nav_home">الرئيسية</a>
+            <a href="#about" data-key="nav_about">من نحن</a>
+            <a href="#products" data-key="nav_products">الخدمات</a>
+            <a href="#contact" data-key="nav_contact">اتصل بنا</a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 data-key="footer_contact_title">معلومات التواصل</h4>
+          <div class="footer-links">
+            <a href="tel:+201113903070">📱 +20 111 390 3070</a>
+            <a href="mailto:moh222salah@gmail.com">📧 moh222salah@gmail.com</a>
+            <a href="https://wa.me/201113903070">💬 واتساب</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p data-key="footer_copyright">© 2026 نظام الصديق - جميع الحقوق محفوظة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- WhatsApp Float Button                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <a href="https://wa.me/201113903070?text=مرحباً، أريد الاستفسار عن خدمات نظام الصديق" class="whatsapp-float" title="WhatsApp">
+    💬
+  </a>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Mobile Bottom Navigation                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#hero" class="mobile-nav-item active" data-nav="hero">
+      <div class="mobile-nav-icon">🏠</div>
+      <div class="mobile-nav-label" data-key="nav_home">الرئيسية</div>
+    </a>
+    <a href="#products" class="mobile-nav-item" data-nav="products">
+      <div class="mobile-nav-icon">💼</div>
+      <div class="mobile-nav-label" data-key="nav_products">الخدمات</div>
+    </a>
+    <a href="https://wa.me/201113903070" class="mobile-nav-item">
+      <div class="mobile-nav-icon">💬</div>
+      <div class="mobile-nav-label" data-key="nav_whatsapp">واتساب</div>
+    </a>
+    <a href="#contact" class="mobile-nav-item" data-nav="contact">
+      <div class="mobile-nav-icon">📞</div>
+      <div class="mobile-nav-label" data-key="nav_contact">اتصل بنا</div>
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Modal: Category Products                                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <div class="modal" id="categoryModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="categoryModalTitle"></h3>
+        <button class="modal-close" onclick="closeModal('categoryModal')">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="products-modal-grid" id="productsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Modal: Product Detail                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="productModalTitle"></h3>
+        <button class="modal-close" onclick="closeModal('productModal')">×</button>
+      </div>
+      <div class="modal-body" id="productModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- JavaScript                                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    // 1. Configuration
+    // ═══════════════════════════════════════════════════════════
+    
+    const CONFIG = {
+      BUSINESS_NAME: 'نظام الصديق AlSediq System',
+      BUSINESS_TYPE: 'نظام اقتصادي إسلامي شامل',
+      PHONE: '+201113903070',
+      EMAIL: 'moh222salah@gmail.com',
+      LOCATION: 'خدماتنا متاحة في جميع أنحاء العالم الإسلامي',
+      MAPS_URL: ''
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    // 2. State Management
+    // ═══════════════════════════════════════════════════════════
+    
+    const state = {
+      lang: localStorage.getItem('lang') || (navigator.language.startsWith('ar') ? 'ar' : 'en'),
+      theme: localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
+      categories: [],
+      openModal: null
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    // 3. Data: Categories & Products
+    // ═══════════════════════════════════════════════════════════
+    
+    const CATEGORIES = [
+      {
+        id: 'dinar',
+        icon: '🪙',
+        name: { ar: 'الدينار الذهبي', en: 'Gold Dinar' },
+        desc: { ar: 'عملة ذهبية سيادية', en: 'Sovereign gold currency' },
+        products: [
+          {
+            name: { ar: 'دينار ذهبي واحد', en: '1 Gold Dinar' },
+            price: { ar: '276.25 دولار', en: '$276.25' },
+            desc: { ar: '4.25 جرام ذهب خالص عيار 24 - القيمة محفوظة ومضمونة', en: '4.25g pure 24K gold - guaranteed value' },
+            image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400',
+            stock: 'available',
+            specs: { ar: ['الوزن: 4.25 جرام', 'العيار: 24 قيراط', 'الشهادة: معتمدة دولياً', 'التخزين: خزائن سيادية'], en: ['Weight: 4.25g', 'Purity: 24K', 'Certified internationally', 'Storage: Sovereign vaults'] }
+          },
+          {
+            name: { ar: 'حزمة 10 دنانير', en: '10 Dinars Pack' },
+            price: { ar: '2,762.50 دولار', en: '$2,762.50' },
+            desc: { ar: '42.5 جرام ذهب - مناسب للادخار والاستثمار', en: '42.5g gold - ideal for savings' },
+            image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400',
+            stock: 'available',
+            specs: { ar: ['الوزن الكلي: 42.5 جرام', 'عدد القطع: 10', 'التغليف: فاخر ومختوم', 'الضمان: مدى الحياة'], en: ['Total weight: 42.5g', '10 pieces', 'Premium packaging', 'Lifetime warranty'] }
+          },
+          {
+            name: { ar: 'حزمة 100 دينار (استثمارية)', en: '100 Dinars Investment' },
+            price: { ar: '27,625 دولار', en: '$27,625' },
+            desc: { ar: '425 جرام ذهب - حماية كاملة من التضخم', en: '425g gold - full inflation protection' },
+            image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400',
+            stock: 'limited',
+            specs: { ar: ['الوزن: 425 جرام', 'مناسب للمؤسسات', 'تدقيق شهري', 'قابل للاستبدال بالذهب الفعلي'], en: ['Weight: 425g', 'For institutions', 'Monthly audit', 'Redeemable for physical gold'] }
+          }
+        ]
+      },
+      {
+        id: 'dirham',
+        icon: '⚪',
+        name: { ar: 'الدرهم الفضي', en: 'Silver Dirham' },
+        desc: { ar: 'عملة فضية شرعية', en: 'Legal silver currency' },
+        products: [
+          {
+            name: { ar: 'درهم فضي واحد', en: '1 Silver Dirham' },
+            price: { ar: '138.12 دولار', en: '$138.12' },
+            desc: { ar: '2.975 جرام فضة خالصة - يعادل نصف دينار', en: '2.975g pure silver - equals half dinar' },
+            image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400',
+            stock: 'available',
+            specs: { ar: ['الوزن: 2.975 جرام', 'النقاء: 99.9%', 'القيمة: نصف دينار', 'الاستخدام: معاملات يومية'], en: ['Weight: 2.975g', 'Purity: 99.9%', 'Value: half dinar', 'Usage: daily transactions'] }
+          },
+          {
+            name: { ar: 'حزمة 20 درهم', en: '20 Dirhams Pack' },
+            price: { ar: '2,762.40 دولار', en: '$2,762.40' },
+            desc: { ar: 'معادل 10 دنانير - للمعاملات التجارية', en: 'Equals 10 dinars - for trade' },
+            image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?w=400',
+            stock: 'available',
+            specs: { ar: ['العدد: 20 قطعة', 'الوزن الكلي: 59.5 جرام', 'مناسب للتجار', 'سهل التداول'], en: ['Count: 20 pieces', 'Total: 59.5g', 'For merchants', 'Easy to trade'] }
+          }
+        ]
+      },
+      {
+        id: 'wallet',
+        icon: '📱',
+        name: { ar: 'محفظة الشفاء الرقمية', en: 'Shifaa Digital Wallet' },
+        desc: { ar: 'تطبيق المعاملات الآمن', en: 'Secure transactions app' },
+        products: [
+          {
+            name: { ar: 'محفظة شخصية', en: 'Personal Wallet' },
+            price: { ar: 'مجاناً', en: 'Free' },
+            desc: { ar: 'إدارة دنانيرك ودراهمك بأمان كامل على براق-1', en: 'Manage your dinars and dirhams securely' },
+            image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400',
+            stock: 'available',
+            specs: { ar: ['تشفير سيادي كامل', 'بصمة البصمة للأمان', 'معاملات فورية', 'متوافق مع براق-1'], en: ['Full sovereign encryption', 'Biometric security', 'Instant transactions', 'Compatible with Buraq-1'] }
+          },
+          {
+            name: { ar: 'محفظة تجارية', en: 'Business Wallet' },
+            price: { ar: '50 دينار/شهرياً', en: '50 Dinars/month' },
+            desc: { ar: 'حلول الدفع للمتاجر والشركات', en: 'Payment solutions for businesses' },
+            image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400',
+            stock: 'available',
+            specs: { ar: ['معاملات غير محدودة', 'تقارير مالية', 'دعم فني 24/7', 'API للتكامل'], en: ['Unlimited transactions', 'Financial reports', '24/7 support', 'API integration'] }
+          }
+        ]
+      },
+      {
+        id: 'investment',
+        icon: '📊',
+        name: { ar: 'الاستثمار الشرعي', en: 'Halal Investment' },
+        desc: { ar: 'حلول استثمارية متوافقة', en: 'Sharia-compliant solutions' },
+        products: [
+          {
+            name: { ar: 'صندوق الدينار الذهبي', en: 'Gold Dinar Fund' },
+            price: { ar: 'من 100 دينار', en: 'From 100 Dinars' },
+            desc: { ar: 'استثمار طويل الأمد بضمان حماية القيمة', en: 'Long-term investment with value protection' },
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400',
+            stock: 'available',
+            specs: { ar: ['عوائد شرعية', 'بدون ربا', 'شفافية كاملة', 'قابل للسحب'], en: ['Halal returns', 'No riba', 'Full transparency', 'Withdrawable'] }
+          },
+          {
+            name: { ar: 'مضاربة إسلامية', en: 'Islamic Mudaraba' },
+            price: { ar: 'من 500 دينار', en: 'From 500 Dinars' },
+            desc: { ar: 'شراكة في المشاريع الإسلامية المربحة', en: 'Partnership in profitable Islamic projects' },
+            image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400',
+            stock: 'limited',
+            specs: { ar: ['عقود شرعية', 'مراجعة هيئة شرعية', 'توزيع أرباح عادل', 'تقارير ربع سنوية'], en: ['Sharia contracts', 'Reviewed by scholars', 'Fair profit sharing', 'Quarterly reports'] }
+          }
+        ]
+      },
+      {
+        id: 'farouq',
+        icon: '🛡️',
+        name: { ar: 'مشروع فاروق التقني', en: 'Farouq Tech Project' },
+        desc: { ar: 'السيادة الرقمية الكاملة', en: 'Full digital sovereignty' },
+        products: [
+          {
+            name: { ar: 'جهاز براق-1', en: 'Buraq-1 Device' },
+            price: { ar: '300 دينار', en: '300 Dinars' },
+            desc: { ar: 'هاتف سيادي بمعالج سجيل-1 ونظام فاروق OS', en: 'Sovereign phone with Sijjil-1 processor' },
+            image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400',
+            stock: 'pre-order',
+            specs: { ar: ['معالج RISC-V', 'نظام فاروق OS', 'تشفير كامل', 'مفاتيح عزل فيزيائي'], en: ['RISC-V processor', 'Farouq OS', 'Full encryption', 'Physical isolation'] }
+          },
+          {
+            name: { ar: 'حاسوب شباب-1', en: 'Shabab-1 Laptop' },
+            price: { ar: '800 دينار', en: '800 Dinars' },
+            desc: { ar: 'حاسوب محمول سيادي للمطورين والمهندسين', en: 'Sovereign laptop for developers' },
+            image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400',
+            stock: 'pre-order',
+            specs: { ar: ['معالج سجيل-1', '32GB RAM', '2TB SSD مشفر', 'بطارية 15 ساعة'], en: ['Sijjil-1 processor', '32GB RAM', '2TB encrypted SSD', '15h battery'] }
+          }
+        ]
+      },
+      {
+        id: 'education',
+        icon: '🎓',
+        name: { ar: 'التعليم والتدريب', en: 'Education & Training' },
+        desc: { ar: 'مؤسسة الأرقم', en: 'Al-Arqam Institute' },
+        products: [
+          {
+            name: { ar: 'دورة الاقتصاد الإسلامي', en: 'Islamic Economics Course' },
+            price: { ar: '10 دنانير', en: '10 Dinars' },
+            desc: { ar: 'فهم شامل للنظام المالي الإسلامي والدينار الذهبي', en: 'Comprehensive Islamic finance understanding' },
+            image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400',
+            stock: 'available',
+            specs: { ar: ['مدة الدورة: 6 أسابيع', 'شهادة معتمدة', 'محاضرات حية', 'مواد تعليمية'], en: ['Duration: 6 weeks', 'Certified', 'Live lectures', 'Learning materials'] }
+          },
+          {
+            name: { ar: 'برنامج المطور السيادي', en: 'Sovereign Developer Program' },
+            price: { ar: '50 دينار', en: '50 Dinars' },
+            desc: { ar: 'تدريب على تطوير تطبيقات فاروق OS', en: 'Training on Farouq OS development' },
+            image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400',
+            stock: 'limited',
+            specs: { ar: ['3 أشهر تدريب', 'مشاريع عملية', 'فرص توظيف', 'شهادة احترافية'], en: ['3 months training', 'Practical projects', 'Job opportunities', 'Professional certificate'] }
+          }
+        ]
+      }
+    ];
+
+    state.categories = CATEGORIES;
+
+    // ═══════════════════════════════════════════════════════════
+    // 4. Translations
+    // ═══════════════════════════════════════════════════════════
+    
+    const T = {
+      ar: {
+        business_name: 'نظام الصديق',
+        nav_home: 'الرئيسية',
+        nav_about: 'من نحن',
+        nav_products: 'الخدمات',
+        nav_contact: 'اتصل بنا',
+        nav_whatsapp: 'واتساب',
+        hero_title: 'نظام الصديق للاقتصاد الإسلامي',
+        hero_subtitle: 'نظام مالي سيادي قائم على الدينار الذهبي والدرهم الفضي - استقلال تام عن التبعية المالية الغربية',
+        hero_cta_primary: 'اكتشف الخدمات ←',
+        hero_cta_secondary: '📱 تواصل معنا',
+        about_title: 'من نحن',
+        about_vision_title: 'رؤيتنا: السيادة المالية الإسلامية',
+        about_p1: 'نظام الصديق هو نظام اقتصادي إسلامي متكامل 100%، مبني على الحلال والحرام، يهدف إلى تحرير الأمة من التبعية المالية للعملات الورقية والديون الربوية.',
+        about_p2: 'نحن نؤمن بأن النظام المالي العالمي الحالي هو أداة استعباد حديثة. لذلك نقدم بديلاً سيادياً كاملاً قائماً على الدينار الذهبي (4.25 جرام ذهب خالص) والدرهم الفضي، مع تقنية البلوكشين الإسلامية لضمان الشفافية والأمان.',
+        about_p3: 'من خلال مصرف الشفاء ومنظومة حاطب الفضائية، نوفر شبكة مالية مستقلة تماماً عن نظام SWIFT، مع ذكاء اصطناعي دفاعي يحمي من الهجمات الاقتصادية والمضاربات.',
+        stat_halal: 'حلال شرعاً',
+        stat_gold: 'جرام ذهب/دينار',
+        stat_riba: 'ربا',
+        stat_support: 'دعم فني',
+        products_title: 'خدماتنا ومنتجاتنا',
+        products_count: 'منتج',
+        contact_title: 'تواصل معنا',
+        contact_phone_title: 'الهاتف',
+        contact_email_title: 'البريد الإلكتروني',
+        contact_hours_title: 'ساعات العمل',
+        contact_hours_value: 'السبت - الخميس: 9:00 ص - 6:00 م',
+        contact_location_title: 'الموقع',
+        contact_location_value: 'خدماتنا متاحة في جميع أنحاء العالم الإسلامي',
+        map_placeholder: 'شبكة عالمية من الخدمات المالية الإسلامية',
+        footer_desc: 'نظام اقتصادي إسلامي سيادي قائم على الدينار الذهبي والدرهم الفضي، يحمي القوة الشرائية ويحرر الأمة من التبعية المالية.',
+        footer_links_title: 'روابط سريعة',
+        footer_contact_title: 'معلومات التواصل',
+        footer_copyright: '© 2026 نظام الصديق - جميع الحقوق محفوظة',
+        stock_available: 'متوفر',
+        stock_limited: 'محدود',
+        stock_out: 'غير متوفر',
+        stock_preorder: 'طلب مسبق',
+        btn_order_whatsapp: 'اطلب عبر واتساب',
+        product_specs: 'المواصفات'
+      },
+      en: {
+        business_name: 'AlSediq System',
+        nav_home: 'Home',
+        nav_about: 'About',
+        nav_products: 'Services',
+        nav_contact: 'Contact',
+        nav_whatsapp: 'WhatsApp',
+        hero_title: 'AlSediq Islamic Economic System',
+        hero_subtitle: 'Sovereign financial system based on Gold Dinar and Silver Dirham - complete independence from Western financial dependency',
+        hero_cta_primary: 'Discover Services →',
+        hero_cta_secondary: '📱 Contact Us',
+        about_title: 'About Us',
+        about_vision_title: 'Our Vision: Islamic Financial Sovereignty',
+        about_p1: 'AlSediq System is a 100% Islamic economic system, built on halal and haram principles, aiming to liberate the Ummah from dependency on fiat currencies and usurious debts.',
+        about_p2: 'We believe the current global financial system is a modern enslavement tool. Therefore, we offer a complete sovereign alternative based on the Gold Dinar (4.25g pure gold) and Silver Dirham, with Islamic blockchain technology ensuring transparency and security.',
+        about_p3: 'Through Shifaa Bank and Hatib satellite network, we provide a financial network completely independent of SWIFT, with defensive AI protecting against economic attacks and speculation.',
+        stat_halal: 'Sharia Compliant',
+        stat_gold: 'grams gold/dinar',
+        stat_riba: 'usury',
+        stat_support: 'technical support',
+        products_title: 'Our Services & Products',
+        products_count: 'product',
+        contact_title: 'Contact Us',
+        contact_phone_title: 'Phone',
+        contact_email_title: 'Email',
+        contact_hours_title: 'Working Hours',
+        contact_hours_value: 'Saturday - Thursday: 9:00 AM - 6:00 PM',
+        contact_location_title: 'Location',
+        contact_location_value: 'Our services are available throughout the Islamic world',
+        map_placeholder: 'Global network of Islamic financial services',
+        footer_desc: 'Sovereign Islamic economic system based on Gold Dinar and Silver Dirham, protecting purchasing power and liberating the Ummah from financial dependency.',
+        footer_links_title: 'Quick Links',
+        footer_contact_title: 'Contact Information',
+        footer_copyright: '© 2026 AlSediq System - All rights reserved',
+        stock_available: 'Available',
+        stock_limited: 'Limited',
+        stock_out: 'Out of stock',
+        stock_preorder: 'Pre-order',
+        btn_order_whatsapp: 'Order via WhatsApp',
+        product_specs: 'Specifications'
+      }
+    };
+
+    // ═══════════════════════════════════════════════════════════
+    // 5. Theme System
+    // ═══════════════════════════════════════════════════════════
+    
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.getElementById('themeIcon').textContent = theme === 'dark' ? '☀️' : '🌙';
+      state.theme = theme;
+      localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+      applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 6. Language System
+    // ═══════════════════════════════════════════════════════════
+    
+    function applyLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      document.querySelector('[data-lang-display]').textContent = lang === 'ar' ? 'EN' : 'عربي';
+      
+      // Update all text with data-key
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (T[lang][key]) {
+          el.textContent = T[lang][key];
+        }
+      });
+      
+      state.lang = lang;
+      localStorage.setItem('lang', lang);
+      
+      // Re-render products
+      renderCategories();
+    }
+
+    function toggleLang() {
+      applyLang(state.lang === 'ar' ? 'en' : 'ar');
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 7. Render Functions
+    // ═══════════════════════════════════════════════════════════
+    
+    function renderCategories() {
+      const grid = document.getElementById('categoriesGrid');
+      const lang = state.lang;
+      
+      grid.innerHTML = state.categories.map((cat, i) => `
+        <div class="card category-card" onclick="openCategoryModal(${i})">
+          <div class="category-header">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div class="category-icon">${cat.icon}</div>
+              <div>
+                <div class="category-title">${cat.name[lang]}</div>
+                <div class="category-count">${cat.products.length} ${T[lang].products_count}</div>
+              </div>
+            </div>
+            <div class="category-arrow">←</div>
+          </div>
+          <p class="text-muted">${cat.desc[lang]}</p>
+        </div>
+      `).join('');
+    }
+
+    function openCategoryModal(catIndex) {
+      const cat = state.categories[catIndex];
+      const lang = state.lang;
+      const modal = document.getElementById('categoryModal');
+      const title = document.getElementById('categoryModalTitle');
+      const grid = document.getElementById('productsGrid');
+      
+      title.textContent = cat.name[lang];
+      
+      grid.innerHTML = cat.products.map((prod, i) => `
+        <div class="card product-card" onclick="openProductModal(${catIndex}, ${i})">
+          <div class="product-image">
+            <img src="${prod.image}" alt="${prod.name[lang]}" loading="lazy">
+          </div>
+          <div class="product-info">
+            <h4>${prod.name[lang]}</h4>
+            <div class="product-price">${prod.price[lang]}</div>
+            <p class="text-muted" style="font-size: 0.875rem;">${prod.desc[lang]}</p>
+            <div class="product-badges">
+              <span class="badge ${prod.stock === 'available' ? 'success' : prod.stock === 'limited' ? '' : prod.stock === 'pre-order' ? '' : 'danger'}">
+                ${T[lang]['stock_' + prod.stock.replace('-', '')]}
+              </span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      state.openModal = 'categoryModal';
+    }
+
+    function openProductModal(catIndex, prodIndex) {
+      const cat = state.categories[catIndex];
+      const prod = cat.products[prodIndex];
+      const lang = state.lang;
+      const modal = document.getElementById('productModal');
+      const title = document.getElementById('productModalTitle');
+      const body = document.getElementById('productModalBody');
+      
+      title.textContent = prod.name[lang];
+      
+      const waMsg = `مرحباً، أريد الاستفسار عن: ${prod.name.ar} (${prod.price.ar})`;
+      const waLink = `https://wa.me/${CONFIG.PHONE.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(waMsg)}`;
+      
+      body.innerHTML = `
+        <div class="product-detail-grid">
+          <div class="product-detail-image">
+            <img src="${prod.image}" alt="${prod.name[lang]}" loading="lazy">
+          </div>
+          <div class="product-detail-info">
+            <h3>${prod.name[lang]}</h3>
+            <div class="product-detail-price">${prod.price[lang]}</div>
+            <p>${prod.desc[lang]}</p>
+            
+            <div class="product-badges" style="margin: 1rem 0;">
+              <span class="badge ${prod.stock === 'available' ? 'success' : prod.stock === 'limited' ? '' : prod.stock === 'pre-order' ? '' : 'danger'}">
+                ${T[lang]['stock_' + prod.stock.replace('-', '')]}
+              </span>
+            </div>
+            
+            ${prod.specs ? `
+              <div class="product-specs">
+                <h4>${T[lang].product_specs}</h4>
+                <div class="specs-list">
+                  ${prod.specs[lang].map(spec => `
+                    <div class="spec-item">
+                      <span class="spec-icon">✓</span>
+                      <span>${spec}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+            
+            <a href="${waLink}" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">
+              ${T[lang].btn_order_whatsapp} →
+            </a>
+          </div>
+        </div>
+      `;
+      
+      // Close category modal if open
+      closeModal('categoryModal');
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      state.openModal = 'productModal';
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      state.openModal = null;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 8. Scroll & Header Effects
+    // ═══════════════════════════════════════════════════════════
+    
+    function handleScroll() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Update mobile nav active state
+      const sections = ['hero', 'products', 'contact'];
+      const mobileNavItems = document.querySelectorAll('.mobile-nav-item[data-nav]');
+      
+      sections.forEach(section => {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            mobileNavItems.forEach(item => {
+              if (item.getAttribute('data-nav') === section) {
+                item.classList.add('active');
+              } else {
+                item.classList.remove('active');
+              }
+            });
+          }
+        }
+      });
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // 9. Event Listeners
+    // ═══════════════════════════════════════════════════════════
+    
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('langToggle').addEventListener('click', toggleLang);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Close modal on overlay click
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal(modal.id);
+        }
+      });
+    });
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && state.openModal) {
+        closeModal(state.openModal);
+      }
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    // 10. Initialize
+    // ═══════════════════════════════════════════════════════════
+    
+    function init() {
+      applyTheme(state.theme);
+      applyLang(state.lang);
+      renderCategories();
+      handleScroll();
+    }
+
+    init();
+  </script>
+</body>
+</html>
